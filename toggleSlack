@@ -1,7 +1,0 @@
-#!/bin/bash
-
-if pgrep -x "slack" > /dev/null ; then
-	killall slack
-else
-	slack
-fi
