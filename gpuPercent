@@ -1,0 +1,12 @@
+#!/bin/bash
+
+percent=$(nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits)
+size=${#percent}
+
+if [[ $size -lt 2 ]]; then
+	echo "G: $percent%"
+fi
+
+if [[ $size -gt 1 ]]; then
+	echo "G:$percent%"
+fi

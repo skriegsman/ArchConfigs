@@ -1,0 +1,7 @@
+#!/bin/bash
+
+#This line wont run because lolcat wont color the block char output from toilet
+toilet -f 3d.flf "$*" -t | lolcat -p 20
+
+#This line is the same one but without lolcat
+toilet -f 3d.flf "$*" -t

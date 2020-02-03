@@ -1,0 +1,7 @@
+#!/bin/bash
+
+if [[ $(systemctl is-enabled bluetooth.service) = *enabled* ]]; then
+	systemctl disable bluetooth.service
+else
+	systemctl enable bluetooth.service
+fi
