@@ -1,0 +1,8 @@
+#!/bin/bash
+
+PINUM=$1
+ip link | awk -F: '$0 !~ "lo|vir|wl|^[^0-9]"{$2;getline}'
+
+# ifconfig enp0s20f0u1 192.168.1.15;
+ifconfig "$2" 192.168.1.15;
+ssh pi@192.168.1."$PINUM"

@@ -1,0 +1,29 @@
+#!/bin/bash
+
+selected=$(echo "i3Lock
+Backup to GoogleDrive
+Logout(exit i3)
+Hibernate(sleep mode)
+Reboot Computer
+Shutdown Computer" | rofi -dmenu -theme solarized.rasi -p "Select")
+
+if [ "$selected" == "i3Lock" ]; then
+	mpc pause
+	pauseallmpv
+	i3lock -e -f -c 1d2021
+	xset dpms force off
+elif [ "$selected" == "Backup to GoogleDrive" ]; then
+	backup
+elif [ "$selected" == "Logout(exit i3)" ]; then
+	i3-msg exit
+elif [ "$selected" == "Hibernate(sleep mode)" ]; then
+	sudo -A systemctl suspend
+elif [ "$selected" == "Reboot Computer" ]; then
+	sudo kill $(ps aux | grep pia);
+	sudo -A reboot
+elif [ "$selected" == "Shutdown Computer" ]; then
+	sudo kill $(ps aux | grep pia);
+	sudo -A shutdown -h now
+else
+	exit
+fi

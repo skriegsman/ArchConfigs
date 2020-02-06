@@ -1,0 +1,35 @@
+#!/bin/bash
+
+term=st
+
+selected=$(echo "Super Mute
+Matrix Rain
+Hollywood
+NoMoreSecrets
+LolCat
+ASCII Fire" | rofi -dmenu -theme solarized.rasi -p "Select")
+
+if [ "$selected" == "Super Mute" ]; then
+	lmc truemute;
+	lmc pause;
+	pauseallmpv;
+	i3-msg workspace 0;
+	"$term" -e htop;
+elif [ "$selected" == "Matrix Rain" ]; then
+	i3-msg workspace 0
+	exec "$term" -e unimatrix -b -s 95 -l o
+elif [ "$selected" == "Hollywood" ]; then
+	i3-msg workspace 0
+	exec "$term" -e hollywood
+elif [ "$selected" == "NoMoreSecrets" ]; then
+	i3-msg workspace 0
+	exec "$term" -e sh -c 'ls -la | nms'
+elif [ "$selected" == "LolCat" ]; then
+	i3-msg workspace 0
+	exec "$term" -e sh -c 'ls -la | lolcat -a -s 100'
+elif [ "$selected" == "ASCII Fire" ]; then
+	i3-msg workspace 0
+	exec cacafire
+else
+	exit
+fi
