@@ -10,7 +10,7 @@
 "					   ░░      ░░   ░░░  ░░  ░░
 "
 "-------------------------------------------------------------------------------------------------------------"
-
+"poop
 " This block sets the mapleader character to the comman, see this link to explain what this means
 " More Info At: https://learnvimscriptthehardway.stevelosh.com/chapters/06.html
 	let mapleader =","
@@ -33,12 +33,14 @@
 	Plug 'PotatoesMaster/i3-vim-syntax' 	" Adds syntax highlighting for the i3 config file
 	Plug 'bling/vim-airline'		" Statusbar and tabline for vim, much cleaner
 	Plug 'vifm/vifm.vim'			" A vim file manager
-	Plug 'ycm-core/YouCompleteMe'		" Autocomplete drop down menus
+	"Plug 'ajh17/vimcompletesme'		" Makes vims built in autocomplete easier to use
+	Plug 'shougo/deoplete.nvim'
 	Plug 'floobits/floobits-neovim'		" Cross platform Teletype
 	Plug 'junegunn/rainbow_parentheses.vim'	" Color codes nested brackets, etc.
 	Plug 'chun-yang/auto-pairs'		" Auto adds the completing bracket
 	Plug 'scrooloose/nerdcommenter'		" Adds shortcuts to comment code
 	Plug 'tpope/vim-fugitive'		" Git commands in vim
+	Plug 'severin-lemaignan/vim-minimap'	" MINIMAP!!!! Just like atom!
 	call plug#end()
 
 " The following block sets some of the basic settings light the mouse, background, clipboard, and gui options
@@ -60,6 +62,9 @@
 
 " Auto start the rainbow parentheses on start
 	autocmd VimEnter * :RainbowParentheses
+
+" Use deoplete.
+	let g:deoplete#enable_at_startup = 1
 
 " Disables automatic commenting on newline:
 	autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
