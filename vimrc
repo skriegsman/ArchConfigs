@@ -10,7 +10,7 @@
 "					   ░░      ░░   ░░░  ░░  ░░
 "
 "-------------------------------------------------------------------------------------------------------------"
-"poop
+"
 " This block sets the mapleader character to the comman, see this link to explain what this means
 " More Info At: https://learnvimscriptthehardway.stevelosh.com/chapters/06.html
 	let mapleader =","
@@ -28,12 +28,12 @@
 	endif
 
 	call plug#begin('~/.config/nvim/plugged')
+	"Plug 'ajh17/vimcompletesme'		" Makes vims built in autocomplete easier to use
 	Plug 'tpope/vim-surround'		" Shortcuts for using quotes, brackets, parentheses, etc
 	Plug 'scrooloose/nerdtree'		" File system explorer for vim
 	Plug 'PotatoesMaster/i3-vim-syntax' 	" Adds syntax highlighting for the i3 config file
 	Plug 'bling/vim-airline'		" Statusbar and tabline for vim, much cleaner
 	Plug 'vifm/vifm.vim'			" A vim file manager
-	"Plug 'ajh17/vimcompletesme'		" Makes vims built in autocomplete easier to use
 	Plug 'shougo/deoplete.nvim'
 	Plug 'floobits/floobits-neovim'		" Cross platform Teletype
 	Plug 'junegunn/rainbow_parentheses.vim'	" Color codes nested brackets, etc.
@@ -41,6 +41,7 @@
 	Plug 'scrooloose/nerdcommenter'		" Adds shortcuts to comment code
 	Plug 'tpope/vim-fugitive'		" Git commands in vim
 	Plug 'severin-lemaignan/vim-minimap'	" MINIMAP!!!! Just like atom!
+	Plug 'xuhdev/vim-latex-live-preview'	" LaTex live preview while working
 	call plug#end()
 
 " The following block sets some of the basic settings light the mouse, background, clipboard, and gui options
@@ -56,15 +57,22 @@
 	syntax on
 	set encoding=utf-8
 	set number
+	set tabstop=4
+	set shiftwidth=4
 
 	set hlsearch
 	set smartcase
 
 " Auto start the rainbow parentheses on start
 	autocmd VimEnter * :RainbowParentheses
+	let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{', '}']]
 
 " Use deoplete.
 	let g:deoplete#enable_at_startup = 1
+
+" Configurations for LaTex
+	autocmd FileType tex setlocal updatetime=1
+	let g:livepreview_previewer = 'zathura'
 
 " Disables automatic commenting on newline:
 	autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-SCRIPT_FOLDER="$HOME/Code/systemFiles/scripts"
+SCRIPT_FOLDER="$HOME/Code/ArchConfigs/scripts"
 SCRIPT_FILE="$SCRIPT_FOLDER/$1"
 
 if [[ -f $SCRIPT_FILE ]]; then
@@ -8,5 +8,6 @@ if [[ -f $SCRIPT_FILE ]]; then
 else
   echo '#!/bin/bash' > $SCRIPT_FILE
   chmod u+x $SCRIPT_FILE
+  ln -sf $SCRIPT_FILE ~/.local/bin/$1
   vim $SCRIPT_FILE
 fi
