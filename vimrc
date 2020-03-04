@@ -35,7 +35,6 @@
 	Plug 'bling/vim-airline'		" Statusbar and tabline for vim, much cleaner
 	Plug 'vifm/vifm.vim'			" A vim file manager
 	Plug 'shougo/deoplete.nvim'
-	Plug 'floobits/floobits-neovim'		" Cross platform Teletype
 	Plug 'junegunn/rainbow_parentheses.vim'	" Color codes nested brackets, etc.
 	Plug 'chun-yang/auto-pairs'		" Auto adds the completing bracket
 	Plug 'scrooloose/nerdcommenter'		" Adds shortcuts to comment code
@@ -43,6 +42,7 @@
 	Plug 'severin-lemaignan/vim-minimap'	" MINIMAP!!!! Just like atom!
 	Plug 'xuhdev/vim-latex-live-preview'	" LaTex live preview while working
 	call plug#end()
+
 
 " The following block sets some of the basic settings light the mouse, background, clipboard, and gui options
 	set bg=light
